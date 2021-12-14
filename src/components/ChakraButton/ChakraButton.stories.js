@@ -4,15 +4,9 @@ import { Button } from '@chakra-ui/react';
 export default {
 	title: 'Chakra/Button',
 	component: Button,
-	// argTypes: {
-	// 	colorScheme: {
-	// 		control: 'text',
-	// 	},
-	// },
+	// Component level actions
 	argTypes: { onClick: { action: 'clicked' } },
 };
-
-// export const Primary = () => <Button colorScheme='teal'>Chakra Button</Button>;
 
 const Template = (args) => <Button {...args} />;
 

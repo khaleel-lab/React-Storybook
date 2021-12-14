@@ -1,7 +1,18 @@
 import React from 'react';
-import { addDecorator } from '@storybook/react';
-import { Center } from '../src/components/CenterUtil/Center';
+import { addDecorator, addParameters } from '@storybook/react';
 import { ChakraProvider, extendTheme } from '@chakra-ui/react';
+import { withKnobs } from '@storybook/addon-knobs';
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport';
+import { withA11y } from '@storybook/addon-a11y';
+
+// Component
+import { Center } from '../src/components/CenterUtil/Center';
+
+// Console addon
+import '@storybook/addon-console';
+
+// To console root component
+import { withConsole } from '@storybook/addon-console';
 
 // #Global level decarator
 
@@ -15,6 +26,7 @@ import { ChakraProvider, extendTheme } from '@chakra-ui/react';
 // 	</ChakraProvider>
 // ));
 
+// Theming V6
 export const decarators = [
 	(Story) => (
 		<ChakraProvider theme={theme}>
@@ -24,6 +36,19 @@ export const decarators = [
 		</ChakraProvider>
 	),
 ];
+
+//  To log - from which component info function
+addDecorator((storyFn, context) => withConsole()(storyFn)(context));
+
+addDecorator(withKnobs);
+addDecorator(withA11y);
+
+// Use a detailed set of devices
+addParameters({
+	viewport: {
+		viewports: INITIAL_VIEWPORTS,
+	},
+});
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
@@ -36,11 +61,11 @@ export const parameters = {
 				: a[1].id.localeCompare(b[1].id, undefined, { numeric: true }),
 	},
 
-	// ViewPort Config
-	viewport: {
-		viewports: newViewports, // newViewports would be an ViewportMap. (see below for examples)
-		defaultViewport: 'someDefault',
-	},
+	// default set of viewports
+	// viewport: {
+	// 	viewports: newViewports, // newViewports would be an ViewportMap. (see below for examples)
+	// 	defaultViewport: 'someDefault',
+	// },
 
 	controls: {
 		matchers: {

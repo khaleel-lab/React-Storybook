@@ -1,5 +1,6 @@
-import { Center } from '../CenterUtil/Center';
+// Components
 import Button from './Button';
+// import { Center } from '../CenterUtil/Center';
 
 export default {
 	title: 'Folder/Button',
@@ -7,7 +8,7 @@ export default {
 	args: {
 		children: 'Button name',
 	},
-	argsTypes: {
+	argTypes: {
 		variant: { control: 'text' },
 		children: { control: 'text' },
 		onClick: { action: 'clicked' },
@@ -17,13 +18,13 @@ export default {
 };
 
 // Normal approach to pass props
-// export const Primary = () => <Button variant='primary'>Primary V6</Button>;
-// export const Secondary = () => <Button variant='secondary'>Secondary</Button>;
-// export const Success = () => <Button variant='success'>Success</Button>;
-// export const Danger = () => <Button variant='danger'>Danger</Button>;
+export const Primary = () => <Button variant='primary'>Primary V6</Button>;
+export const Secondary = () => <Button variant='secondary'>Secondary</Button>;
+export const Success = () => <Button variant='success'>Success</Button>;
+export const Danger = () => <Button variant='danger'>Danger</Button>;
 
 // Renaming Storybook
-// Primary.storyName = 'Primary V6';
+Primary.storyName = 'Primary V6';
 
 // By using args approach to pass props
 const Template = (args) => <Button {...args} />;

@@ -4,7 +4,10 @@ module.exports = {
 		'@storybook/addon-links',
 		'@storybook/addon-essentials',
 		'@storybook/preset-create-react-app',
-		// '@storybok/addon-viewport',
+		'@storybook/addon-viewport',
+		'@storybok/addon-docs',
+		'@storybook/addon-knobs',
+		'@storybook/addon-a11y',
 	],
 	framework: '@storybook/react',
 };
